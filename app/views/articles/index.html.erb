@@ -1,0 +1,34 @@
+<h1>Listing articles</h1>
+<div id="user_header">
+<% if current_user %>
+  Logged in as <%= current_user.username %>.
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>
+<% flash.each do |key, value| %>
+    <div class="<%= key %>"><%= value %></div>
+<% end %>
+
+</div>
+<%= link_to 'New article', new_article_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= article.author %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
