@@ -8,10 +8,12 @@ set :repo_url, "git@github.com:kihuyu/finblog.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/finblog"
+set :deploy_to, "/var/www/finblog"
+set :use_sudo, true
+set :branch, 'master'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_ruby_version, 'ruby-2.4.2' # Edit this if you are using MRI Ruby
@@ -30,6 +32,7 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
+set :rvm_map_bins, %w{gem rake ruby rails bundle}
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 

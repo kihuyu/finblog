@@ -1,14 +1,8 @@
-require 'rvm1/capistrano3'
-require 'capistrano/bundler'
-require 'capistrano/rvm'
-require 'capistrano/rails/assets' # for asset handling add
-require 'capistrano/rails' # for running migrations
-require 'capistrano/puma'
 # Load DSL and set up stages
-require "capistrano-setup"
+require "capistrano/setup"
 
 # Include default deployment tasks
-require "capistrano-deploy"
+require "capistrano/deploy"
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -18,7 +12,14 @@ require "capistrano-deploy"
 # require "capistrano/scm/svn"
 # install_plugin Capistrano::SCM::Svn
 # or
+
+require 'capistrano/bundler'
+require 'capistrano/rvm'
+require 'capistrano/rails/assets' # for asset handling add
+require 'capistrano/rails' # for running migrations
+require 'capistrano/puma'
 require "capistrano/scm/git"
+
 install_plugin Capistrano::SCM::Git
 
 # Include tasks from other gems included in your Gemfile

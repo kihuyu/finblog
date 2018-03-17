@@ -26,6 +26,6 @@ test:
 
 production:
   <<: *default
-  ddatabase: finblog
+  ddatabase: finblog_production
   username: postgres
   password: Baraza2011
