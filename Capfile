@@ -14,7 +14,7 @@ require "capistrano/deploy"
 # or
 
 #require "capistrano/rvm"
-require 'capistrano/rbenv'
+#require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets' # for asset handling add
 require 'capistrano/rails/migrations' # for running migrations
