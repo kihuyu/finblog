@@ -1,5 +1,6 @@
-PATH
-  remote: /home/maina/nestedcomments
+GIT
+  remote: git://github.com/kihuyu/nestedcomment
+  revision: 3598d3445d44ca81d4b32d1cbd8c6dc440f274d8
   specs:
     nestedcomments (0.1.0)
       rails (~> 5.1.5)

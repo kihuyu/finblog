@@ -15,7 +15,7 @@ set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :keep_releases, 5
-set :rvm_map_bins, %w{gem rake ruby rails bundle}
+set :rvm1_map_bins, %w{rake gem bundle ruby}
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
