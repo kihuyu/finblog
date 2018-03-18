@@ -13,11 +13,12 @@ require "capistrano/deploy"
 # install_plugin Capistrano::SCM::Svn
 # or
 
+require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets' # for asset handling add
 require 'capistrano/rails/migrations' # for running migrations
 require "capistrano/scm/git"
-require 'capistrano/rbenv'
+
 
 install_plugin Capistrano::SCM::Git
 
