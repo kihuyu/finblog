@@ -9,7 +9,8 @@ set :repo_url, "git@github.com:kihuyu/finblog.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/finblog"
-set :use_sudo, true
+#set :use_sudo, true
+set :user, "ubuntu"
 set :branch, 'master'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
@@ -18,6 +19,7 @@ set :keep_releases, 5
 set :rvm1_map_bins, %w{rake gem bundle ruby}
 set :rbenv_type, :user
 set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
+set :rvm_ruby_version, 'ruby-2.2.1p85'
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
