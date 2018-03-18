@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  mount Nestedcomments::Engine, at: "/articles/:id/comments", as: 'comment'
+  mount Nestedcomments::Engine, at: "/articles/:id/comments"
 
 end
