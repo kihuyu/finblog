@@ -8,6 +8,9 @@ set :repo_url, "git@github.com:kihuyu/finblog.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
+set :rvm_type, :system
+set :rvm_ruby_version, 'ruby-2.4.2'
+
 set :deploy_to, "/var/www/finblog"
 #set :use_sudo, true
 set :user, "ubuntu"
@@ -17,9 +20,9 @@ set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :keep_releases, 5
 set :rvm1_map_bins, %w{rake gem bundle ruby}
-set :rbenv_type, :user
+#set :rbenv_type, :user
 set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
-set :rvm_ruby_version, 'ruby-2.2.1p85'
+set :rvm_ruby_version, 'ruby-2.4.2p85'
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -47,3 +50,8 @@ set :rvm_ruby_version, 'ruby-2.2.1p85'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+set :ssh_options, {
+  forward_agent: true,
+  auth_methods: ["publickey"],
+  keys: ["#{Dir.home}/.ssh/mainaworktrial.pem"]
+}
