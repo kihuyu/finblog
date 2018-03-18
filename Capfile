@@ -13,7 +13,14 @@ require "capistrano/deploy"
 # install_plugin Capistrano::SCM::Svn
 # or
 
+require "capistrano/rvm"
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets' # for asset handling add
+require 'capistrano/rails/migrations' # for running migrations
+require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
+
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -26,12 +33,7 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
-require "capistrano/rvm"
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets' # for asset handling add
-require 'capistrano/rails/migrations' # for running migrations
-require "capistrano/scm/git"
+
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
 # require "capistrano/bundler"
