@@ -31,8 +31,17 @@ install_plugin Capistrano::SCM::Git
 #
 
 
-require "capistrano/rvm"
-require 'capistrano/rbenv'
+task :require_rvm do
+  require 'capistrano/rvm'
+end
+task :require_bundler do
+  require 'capistrano/bundler'
+end
+
+#require 'capistrano/rbenv'
+#require "capistrano/rvm"
+require 'rvm/capistrano'
+#require 'bundler/capistrano'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets' # for asset handling add
 require 'capistrano/rails/migrations' # for running migrations
@@ -41,6 +50,11 @@ require 'capistrano/rails/migrations' # for running migrations
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
+
+
+
+task 'staging' => [:require_rvm, :require_bundler]
+task 'production' => [:require_bundler]
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

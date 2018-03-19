@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+#gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -52,8 +52,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'capistrano'
+  gem 'sshkit'
   gem 'capistrano-rvm'
-  gem 'capistrano-rbenv'
+  gem 'rvm-capistrano'
+  #gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
