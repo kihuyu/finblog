@@ -36,12 +36,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'figaro'
 
-group :development, :test do
+#group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  #gem 'capybara', '~> 2.13'
+  #gem 'selenium-webdriver'
+#end
+group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
 end
 
 group :development do
