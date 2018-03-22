@@ -2,21 +2,24 @@
 <div id="user_header">
 <% if current_user %>
   Logged in as <%= current_user.username %>.
-  <%= link_to "Log Out", logout_path %>
+  <%= link_to "Log Out", logout_path, class: 'btn btn-primary btn-xs' %>
 <% else %>
-  <%= link_to "Sign Up", signup_path %> or
-  <%= link_to "Log In", login_path %>
+  <%= link_to "Sign Up", signup_path, class: 'btn btn-primary btn-xs' %> or
+  <%= link_to "Log In", login_path, class: 'btn btn-primary btn-xs' %>
 <% end %>
 <% flash.each do |key, value| %>
     <div class="<%= key %>"><%= value %></div>
 <% end %>
 
 </div>
-<%= link_to 'New article', new_article_path %>
+<%= link_to new_article_path, class: 'btn btn-default btn-info' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Article
+  <% end %>
 <table>
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Author</th>
   </tr>
 
   <% @articles.each do |article| %>
@@ -24,11 +27,13 @@
       <td><%= article.title %></td>
       <td><%= article.text %></td>
       <td><%= article.author %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-             method: :delete,
-             data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', article_path(article), class: 'btn btn-primary btn-xs' %></td>
+      <% if session[:username] == article.author %>
+        <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-info btn-xs' %></td>
+        <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        <% end %>
     </tr>
   <% end %>
 </table>

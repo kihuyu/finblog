@@ -39,8 +39,8 @@ task :require_bundler do
 end
 
 #require 'capistrano/rbenv'
-#require "capistrano/rvm"
-require 'rvm/capistrano'
+require "capistrano/rvm"
+#require 'rvm/capistrano'
 #require 'bundler/capistrano'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets' # for asset handling add

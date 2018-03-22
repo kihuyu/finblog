@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :nestedcomments_comments
 
   get 'welcome/index'
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  #mount Nestedcomments::Engine => "/nestedcomments"
   mount Nestedcomments::Engine, at: "/articles/:id/comments"
 
 end

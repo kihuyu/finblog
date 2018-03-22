@@ -14,6 +14,9 @@ gem 'sqlite3'
 #gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -35,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem 'pg'
 gem 'figaro'
+gem 'responders'
 
 #group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,12 +65,13 @@ group :development do
   gem 'rvm-capistrano'
   #gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails'#, require: false
+  gem 'capistrano-bundler'#, require: false
 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'nestedcomments', :git => 'git://github.com/kihuyu/nestedcomment'
-#gem 'nestedcomments', path: '/home/maina/nestedcomments'
+#gem 'nestedcomments', :git => 'git://github.com/kihuyu/nestedcomment'
+gem 'nestedcomments', path: '/home/maina/nestedcomments'
+#gem 'nester', path: '/home/maina/nester'
