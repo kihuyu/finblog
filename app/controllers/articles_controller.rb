@@ -13,8 +13,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
   def show
+    puts(params[:id])
     @article = Article.find(params[:id])
     session[:id] = @article.id
+    session[:title] = @article.title
   end
   def new
     @article = Article.new

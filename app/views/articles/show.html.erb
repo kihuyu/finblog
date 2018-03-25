@@ -22,6 +22,6 @@
 <% if current_user.nil? %>
   <p class='text-warning'>You must be logged in to view or make comments. </p>
 <% else %>
-  <%= link_to 'Comment', '/articles/' +session[:id].to_s + '/comments', class: 'btn btn-primary btn-xs' %>
-<!--%= render partial: 'nestedcomments/comment' %-->
+  <%= link_to 'Comment', '/articles/' +session[:id].to_s + '/comments/', class: 'btn btn-primary btn-xs' %>
+<!--%= render partial: 'articlecomments/comments/comment' , :comment => Articlecomments_comment.all.text %-->
 <% end %>
